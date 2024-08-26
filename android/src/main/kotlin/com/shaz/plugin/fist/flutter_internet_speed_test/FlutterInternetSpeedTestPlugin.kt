@@ -124,8 +124,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                             override fun onComplete(transferRate: Double) {
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.COMPLETE.ordinal
-                                activity!!.runOnUiThread {
-                                    methodChannel.invokeMethod("callListener", argsMap)
+                                activity?.let {
+                                    it.runOnUiThread {
+                                        methodChannel.invokeMethod("callListener", argsMap)
+                                    }
                                 }
                             }
 
@@ -133,8 +135,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                                 argsMap["speedTestError"] = speedTestError
                                 argsMap["errorMessage"] = errorMessage
                                 argsMap["type"] = ListenerEnum.ERROR.ordinal
-                                activity!!.runOnUiThread {
-                                    methodChannel.invokeMethod("callListener", argsMap)
+                                activity?.let {
+                                    it.runOnUiThread {
+                                        methodChannel.invokeMethod("callListener", argsMap)
+                                    }
                                 }
                             }
 
@@ -143,8 +147,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                                 argsMap["percent"] = percent
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.PROGRESS.ordinal
-                                activity!!.runOnUiThread {
-                                    methodChannel.invokeMethod("callListener", argsMap)
+                                activity?.let {
+                                    it.runOnUiThread {
+                                        methodChannel.invokeMethod("callListener", argsMap)
+                                    }
                                 }
                             }
                         }, testServer, fileSize)
@@ -154,8 +160,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                             override fun onComplete(transferRate: Double) {
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.COMPLETE.ordinal
-                                activity!!.runOnUiThread {
-                                    methodChannel.invokeMethod("callListener", argsMap)
+                                activity?.let {
+                                    it.runOnUiThread {
+                                        methodChannel.invokeMethod("callListener", argsMap)
+                                    }
                                 }
                             }
 
@@ -163,8 +171,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                                 argsMap["speedTestError"] = speedTestError
                                 argsMap["errorMessage"] = errorMessage
                                 argsMap["type"] = ListenerEnum.ERROR.ordinal
-                                activity!!.runOnUiThread {
-                                    methodChannel.invokeMethod("callListener", argsMap)
+                                activity?.let {
+                                    it.runOnUiThread {
+                                        methodChannel.invokeMethod("callListener", argsMap)
+                                    }
                                 }
                             }
 
@@ -172,8 +182,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                                 argsMap["percent"] = percent
                                 argsMap["transferRate"] = transferRate
                                 argsMap["type"] = ListenerEnum.PROGRESS.ordinal
-                                activity!!.runOnUiThread {
-                                    methodChannel.invokeMethod("callListener", argsMap)
+                                activity?.let {
+                                    it.runOnUiThread {
+                                        methodChannel.invokeMethod("callListener", argsMap)
+                                    }
                                 }
                             }
                         }, testServer, fileSize)
@@ -314,8 +326,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                             val map: MutableMap<String, Any> = mutableMapOf()
                             map["id"] = id1
                             map["type"] = ListenerEnum.CANCEL.ordinal
-                            activity!!.runOnUiThread {
-                                methodChannel.invokeMethod("callListener", map)
+                            activity?.let {
+                                it.runOnUiThread {
+                                    methodChannel.invokeMethod("callListener", map)
+                                }
                             }
                         }
                         if (argsMap.containsKey("id2")) {
@@ -323,8 +337,10 @@ class FlutterInternetSpeedTestPlugin : FlutterPlugin, MethodCallHandler, Activit
                             val map: MutableMap<String, Any> = mutableMapOf()
                             map["id"] = id2
                             map["type"] = ListenerEnum.CANCEL.ordinal
-                            activity!!.runOnUiThread {
-                                methodChannel.invokeMethod("callListener", map)
+                            activity?.let {
+                                it.runOnUiThread {
+                                    methodChannel.invokeMethod("callListener", map)
+                                }
                             }
                         }
 
